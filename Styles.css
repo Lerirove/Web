@@ -1,4 +1,6 @@
+/* Estilos generales */
 body {
+    font-family: Arial, sans-serif;
     background-color: #ffc0cb;
     display: flex;
     justify-content: center;
@@ -15,10 +17,13 @@ body {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    width: 90%;
+    max-width: 600px; /* Limita el ancho máximo */
 }
 
 .photo {
-    width: 300px;
+    width: 100%; /* Ajusta el tamaño de la imagen */
+    max-width: 300px;
     height: auto;
     border-radius: 50%;
     margin-bottom: 20px;
@@ -54,19 +59,41 @@ button {
 
 .heart {
     position: absolute;
-    width: 400px; /* Tamaño fijo del GIF */
-    height: auto; /* Mantiene la proporción del GIF */
-    z-index: 0; /* Asegura que los GIFs estén detrás del contenedor */
+    width: 25%;
+    max-width: 150px; /* Ajusta el tamaño del corazón */
+    height: auto;
+    z-index: 0;
 }
 
 #heart-left {
-    left: 25px; /* Espacio desde el borde izquierdo */
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 #heart-right {
-    right: 25px; /* Espacio desde el borde derecho */
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .yes-button, .no-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .photo {
+        width: 80%;
+    }
 }
