@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Puedo ser tu novio?</title>
+    <link rel="stylesheet" href="Styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="welcomeMessage" class="welcome-container">
+        <h1>¡Bienvenida guapa!<br> el día de hoy te quiero preguntar algo...</h1>
+        <button id="welcomeNextButton">Siguiente</button>
+    </div>
+
+    <div id="questionMessage" class="question-container" style="display: none;">
+        <h1> Pero antes, unas palabras <br> .... </h1>
+        <button id="questionNextButton">¿Estas lista?</button>
+    </div>
+
+    <div id="mainContent" class="container" style="display: none;">
+        <h1>¿Puedo ser tu novio?</h1>
+        <img src="love.png" alt="Foto de los dos" class="photo">
+        <div class="buttons">
+            <button id="yesButton" class="yes-button">Sí</button>
+            <button id="noButton" class="no-button">No</button>
+        </div>
+        <p id="message"></p>
+    </div>
+     <!-- Imagen del corazón en los costados -->
+     <img src="corazon.gif" alt="Corazón Izquierda" id="heart-left" class="heart">
+     <img src="corazon.gif" alt="Corazón Derecha" id="heart-right" class="heart">
+
+    <!-- Incluir el archivo de confeti -->
+    <script src="js/confetti.js"></script>
+    <script src="Scripts.js"></script>
+</body>
+</html>
+
+
