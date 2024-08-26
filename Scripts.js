@@ -50,11 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         noButton.style.left = `${yesButtonRect.left}px`;
         noButton.style.top = `${yesButtonRect.top}px`;
-
-        // Convertir el "No" en "Sí" y mostrar el mensaje
-        noButton.textContent = "Sí";
-        noButton.removeEventListener('click', swapButtons);
-        noButton.addEventListener('click', showThankYouMessage);
     }
 });
 
