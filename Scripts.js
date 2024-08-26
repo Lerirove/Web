@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const message = document.getElementById('message');
-    const buttonsContainer = document.querySelector('.buttons');
 
     // Al hacer clic en "Siguiente" del mensaje de bienvenida
     welcomeNextButton.addEventListener('click', () => {
@@ -22,34 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Mostrar mensaje de agradecimiento y confeti al hacer clic en "Sí"
-    yesButton.addEventListener('click', showThankYouMessage);
-
-    // Intercambiar posiciones de los botones "Sí" y "No" al tocar o hacer clic en "No"
-    noButton.addEventListener('click', swapButtons);
-
-    function showThankYouMessage() {
+    yesButton.addEventListener('click', () => {
         message.textContent = '¡Gracias por hacerme el hombre más feliz del mundo!';
         confetti(); // Llama al efecto de confeti al hacer clic en "Sí"
         
         // Ocultar los botones después de mostrar el mensaje
-        buttonsContainer.style.display = 'none';
-    }
+        yesButton.style.display = 'none';
+        noButton.style.display = 'none';
+    });
 
-    function swapButtons() {
-        // Intercambiar los textos de los botones
-        const yesText = yesButton.textContent;
-        const noText = noButton.textContent;
+    // Mover el botón "No" al pasar el cursor (o tocar en dispositivos móviles)
+    noButton.addEventListener('mouseover', moveButton);
+    noButton.addEventListener('touchstart', moveButton); // Añadir evento para dispositivos táctiles
 
-        yesButton.textContent = noText;
-        noButton.textContent = yesText;
+    function moveButton() {
+        const containerRect = mainContent.getBoundingClientRect();
+        const buttonRect = noButton.getBoundingClientRect();
 
-        // Asignar los listeners para que solo se muestre el mensaje en el "Sí"
-        yesButton.removeEventListener('click', swapButtons); // Asegura que "Sí" no intercambie botones
-        yesButton.addEventListener('click', showThankYouMessage);
+        let newLeft = Math.random() * (containerRect.width - buttonRect.width);
+        let newTop = Math.random() * (containerRect.height - buttonRect.height);
 
-        noButton.removeEventListener('click', showThankYouMessage); // Asegura que "No" no muestre el mensaje
-        noButton.addEventListener('click', swapButtons);
+        noButton.style.position = 'absolute';
+        noButton.style.left = `${newLeft}px`;
+        noButton.style.top = `${newTop}px`;
     }
 });
-
 
