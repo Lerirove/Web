@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeMessage = document.getElementById('welcomeMessage');
     const questionMessage = document.getElementById('questionMessage');
     const mainContent = document.getElementById('mainContent');
+    const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const message = document.getElementById('message');
 
@@ -19,34 +20,30 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContent.style.display = 'block';
     });
 
-    document.getElementById('yesButton').addEventListener('click', () => {
+    // Mostrar mensaje de agradecimiento y confeti al hacer clic en "Sí"
+    yesButton.addEventListener('click', () => {
         message.textContent = '¡Gracias por hacerme el hombre más feliz del mundo!';
         confetti(); // Llama al efecto de confeti al hacer clic en "Sí"
     });
 
-    // Función para mover el botón "No"
-    function moveNoButton() {
-        const containerRect = mainContent.getBoundingClientRect();
-        const buttonRect = noButton.getBoundingClientRect();
+    // Intercambiar posiciones de los botones "Sí" y "No" al tocar o hacer clic en "No"
+    noButton.addEventListener('click', swapButtons);
+    noButton.addEventListener('touchstart', swapButtons);
 
-        let newLeft = Math.random() * (window.innerWidth - buttonRect.width);
-        let newTop = Math.random() * (window.innerHeight - buttonRect.height);
+    function swapButtons() {
+        // Guardar las posiciones actuales
+        const yesButtonRect = yesButton.getBoundingClientRect();
+        const noButtonRect = noButton.getBoundingClientRect();
 
-        // Asegurarse de que el botón permanezca dentro de la ventana de visualización
-        if (newLeft < containerRect.left) newLeft = containerRect.left;
-        if (newTop < containerRect.top) newTop = containerRect.top;
-        if (newLeft + buttonRect.width > containerRect.right) newLeft = containerRect.right - buttonRect.width;
-        if (newTop + buttonRect.height > containerRect.bottom) newTop = containerRect.bottom - buttonRect.height;
-
+        // Intercambiar posiciones
+        yesButton.style.position = 'absolute';
         noButton.style.position = 'absolute';
-        noButton.style.left = `${newLeft}px`;
-        noButton.style.top = `${newTop}px`;
+
+        yesButton.style.left = `${noButtonRect.left}px`;
+        yesButton.style.top = `${noButtonRect.top}px`;
+
+        noButton.style.left = `${yesButtonRect.left}px`;
+        noButton.style.top = `${yesButtonRect.top}px`;
     }
-
-    // Event listener para PC
-    noButton.addEventListener('mouseover', moveNoButton);
-
-    // Event listener para móviles
-    noButton.addEventListener('touchstart', moveNoButton);
 });
 
