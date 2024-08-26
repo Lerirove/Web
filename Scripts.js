@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mostrar mensaje de agradecimiento y confeti al hacer clic en "Sí"
     yesButton.addEventListener('click', () => {
-         message.innerHTML = '¡Gracias por hacerme el hombre más feliz del mundo!<br>Love you <3'; // Agrega un salto de línea con <br>
+         message.innerHTML = '¡Gracias por hacerme el hombre más feliz del mundo!<br> LOVE YOU'; // Agrega un salto de línea con <br>
         confetti(); // Llama al efecto de confeti al hacer clic en "Sí"
         
         // Ocultar los botones después de mostrar el mensaje
