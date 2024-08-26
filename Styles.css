@@ -45,7 +45,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    max-width: 75px; /* Limita el ancho máximo de los botones */
+    max-width: 100px; /* Limita el ancho máximo de los botones */
 }
 
 .yes-button {
@@ -97,11 +97,11 @@ button {
     .buttons {
         flex-direction: column; /* Asegura que los botones estén uno encima del otro */
         align-items: center; /* Centra los botones horizontalmente */
-        gap: 10px; /* Espacio entre los botones */
+        gap: 15px; /* Espacio entre los botones */
     }
 
     .yes-button, .no-button {
-        width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+        width: 75%; /* Asegura que los botones ocupen todo el ancho disponible */
         max-width: 300px; /* Limita el ancho máximo en móviles */
     }
 
