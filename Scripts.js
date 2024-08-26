@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Intercambiar posiciones de los botones "Sí" y "No" al tocar o hacer clic en "No"
     noButton.addEventListener('click', swapButtons);
-    noButton.addEventListener('touchstart', swapButtons);
 
     function showThankYouMessage() {
         message.textContent = '¡Gracias por hacerme el hombre más feliz del mundo!';
@@ -37,19 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function swapButtons() {
-        // Guardar las posiciones actuales
-        const yesButtonRect = yesButton.getBoundingClientRect();
-        const noButtonRect = noButton.getBoundingClientRect();
+        // Intercambiar los textos de los botones
+        const yesText = yesButton.textContent;
+        const noText = noButton.textContent;
 
-        // Intercambiar posiciones
-        yesButton.style.position = 'absolute';
-        noButton.style.position = 'absolute';
+        yesButton.textContent = noText;
+        noButton.textContent = yesText;
 
-        yesButton.style.left = `${noButtonRect.left}px`;
-        yesButton.style.top = `${noButtonRect.top}px`;
+        // Asignar los listeners para que solo se muestre el mensaje en el "Sí"
+        yesButton.removeEventListener('click', swapButtons); // Asegura que "Sí" no intercambie botones
+        yesButton.addEventListener('click', showThankYouMessage);
 
-        noButton.style.left = `${yesButtonRect.left}px`;
-        noButton.style.top = `${yesButtonRect.top}px`;
+        noButton.removeEventListener('click', showThankYouMessage); // Asegura que "No" no muestre el mensaje
+        noButton.addEventListener('click', swapButtons);
     }
 });
+
 
