@@ -1,4 +1,6 @@
+/* Estilos generales */
 body {
+    font-family: Arial, sans-serif;
     background-color: #ffc0cb;
     display: flex;
     justify-content: center;
@@ -15,11 +17,13 @@ body {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin-bottom: 20px;
-    max-width: 90%;
+    width: 90%;
+    max-width: 600px; /* Limita el ancho máximo */
 }
 
 .photo {
-    width: 80%; /* Ajuste para pantallas más pequeñas */
+    width: 100%; /* Ajusta el tamaño de la imagen */
+    max-width: 300px;
     height: auto;
     border-radius: 50%;
     margin-bottom: 20px;
@@ -28,8 +32,8 @@ body {
 .buttons {
     margin-top: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que los botones se adapten a pantallas pequeñas */
 }
 
 button {
@@ -38,16 +42,14 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
-}
-
-.yes-button, .no-button {
-    width: 100px; /* Tamaño fijo para asegurar consistencia */
+    flex: 1;
+    max-width: 150px; /* Limita el ancho máximo de los botones */
 }
 
 .yes-button {
     background-color: #28a745;
     color: white;
+    margin-right: 10px;
 }
 
 .no-button {
@@ -55,15 +57,21 @@ button {
     color: white;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .heart {
     position: absolute;
-    width: 200px; /* Tamaño más pequeño para dispositivos móviles */
+    width: 20%; /* Tamaño reducido del GIF para móviles */
+    max-width: 100px; /* Limita el tamaño máximo del GIF */
     height: auto;
     z-index: 0;
 }
 
 #heart-left {
-    left: 10px; /* Ajustes para asegurar que quepa en pantallas pequeñas */
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -74,5 +82,36 @@ button {
     transform: translateY(-50%);
 }
 
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .heart {
+        width: 15%; /* Tamaño aún más reducido para pantallas pequeñas */
+    }
 
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .yes-button, .no-button {
+        width: 100%;
+        max-width: 120px; /* Reducir ancho máximo para móviles */
+        margin-bottom: 10px;
+        padding: 6px 12px; /* Reducir el tamaño del padding */
+    }
+
+    .no-button {
+        position: static; /* Asegura que el botón no se mueva en pantallas pequeñas */
+        margin-bottom: 20px; /* Agrega un poco de espacio debajo del botón "No" */
+    }
+
+    .photo {
+        width: 80%;
+        max-width: 200px; /* Limita el tamaño de la imagen en pantallas pequeñas */
+    }
+}
