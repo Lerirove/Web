@@ -32,8 +32,8 @@ body {
 .buttons {
     margin-top: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-between; /* Asegura que los botones estén en extremos opuestos */
+    gap: 20px; /* Espacio entre los botones */
 }
 
 button {
@@ -49,7 +49,6 @@ button {
 .yes-button {
     background-color: #28a745;
     color: white;
-    margin-right: 10px;
 }
 
 .no-button {
@@ -96,6 +95,7 @@ button {
     .buttons {
         flex-direction: column;
         align-items: center;
+        gap: 10px; /* Espacio entre botones en vertical */
     }
 
     .yes-button, .no-button {
@@ -103,11 +103,6 @@ button {
         max-width: 120px; /* Reducir ancho máximo para móviles */
         margin-bottom: 10px;
         padding: 6px 12px; /* Reducir el tamaño del padding */
-    }
-
-    .no-button {
-        position: static; /* Asegura que el botón no se mueva en pantallas pequeñas */
-        margin-bottom: 20px; /* Agrega un poco de espacio debajo del botón "No" */
     }
 
     .photo {
