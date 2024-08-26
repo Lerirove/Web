@@ -1,3 +1,4 @@
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
@@ -32,8 +33,9 @@ body {
 .buttons {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between; /* Asegura que los botones estén en extremos opuestos */
-    gap: 20px; /* Espacio entre los botones */
+    flex-direction: column; /* Coloca los botones uno arriba del otro */
+    align-items: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
 }
 
 button {
@@ -42,8 +44,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    flex: 1;
-    max-width: 150px; /* Limita el ancho máximo de los botones */
+    width: 100%;
+    max-width: 300px; /* Limita el ancho máximo de los botones */
 }
 
 .yes-button {
@@ -93,15 +95,14 @@ button {
     }
 
     .buttons {
-        flex-direction: row; /* Alinea los botones horizontalmente en pantallas pequeñas */
-        justify-content: space-between; /* Espacio entre los botones */
-        gap: 20px; /* Espacio entre botones */
+        flex-direction: column; /* Asegura que los botones estén uno encima del otro */
+        align-items: center; /* Centra los botones horizontalmente */
+        gap: 10px; /* Espacio entre los botones */
     }
 
     .yes-button, .no-button {
-        width: 48%; /* Ajusta el ancho de los botones */
-        max-width: none; /* Elimina el límite máximo en móviles */
-        padding: 6px 12px; /* Reducir el tamaño del padding */
+        width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+        max-width: 300px; /* Limita el ancho máximo en móviles */
     }
 
     .photo {
