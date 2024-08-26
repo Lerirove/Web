@@ -35,7 +35,7 @@ body {
     display: flex;
     flex-direction: column; /* Coloca los botones uno arriba del otro */
     align-items: center; /* Centra los botones horizontalmente */
-    gap: 20px; /* Espacio entre los botones */
+    gap: 10px; /* Espacio entre los botones */
 }
 
 button {
@@ -45,7 +45,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    max-width: 100px; /* Limita el ancho máximo de los botones */
+    max-width: 150px; /* Limita el ancho máximo de los botones */
 }
 
 .yes-button {
